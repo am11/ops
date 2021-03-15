@@ -26,7 +26,7 @@ func (flags *ConfigCommandFlags) MergeToConfig(c *types.Config) (err error) {
 			c = &types.Config{}
 		}
 
-		unWarpConfig(flags.Config, c)
+		unWrapConfig(flags.Config, c)
 
 		return
 	}
@@ -38,8 +38,8 @@ func (flags *ConfigCommandFlags) MergeToConfig(c *types.Config) (err error) {
 	return
 }
 
-// unWarpConfig parses lepton config file from file
-func unWarpConfig(file string, c *types.Config) (err error) {
+// unWrapConfig parses lepton config file from file
+func unWrapConfig(file string, c *types.Config) (err error) {
 	data, err := ioutil.ReadFile(file)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "error reading config: %v\n", err)
